@@ -158,6 +158,7 @@ const SEO = ({ title, description, image, pathname, article, datePublished }) =>
               <meta name="twitter:description" content={seo.description}/>
             )}
             {seo.image && <meta name="twitter:image" content={seo.image}/>}
+            {twitterHandle && <meta name="twitter:creator" content={twitterHandle} />}
             {!article && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
             {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
             <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
