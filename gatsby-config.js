@@ -91,7 +91,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Ido Shamun - Blog',
+            title: 'Blog - Ido Shamun',
           },
         ],
       },
