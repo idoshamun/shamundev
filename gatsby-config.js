@@ -4,6 +4,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-source-data`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,7 +51,7 @@ module.exports = {
             site {
               siteMetadata {
                 title
-                site_url
+                siteUrl
               }
             }
           }
@@ -63,8 +64,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.site_url + relPath,
-                  guid: site.siteMetadata.site_url + relPath,
+                  url: site.siteMetadata.siteUrl + relPath,
+                  guid: site.siteMetadata.siteUrl + relPath,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
                 });
               });
