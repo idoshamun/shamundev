@@ -32,10 +32,15 @@
 }
 
 .post-thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1.66667em;
 
   img {
     width: 100%;
+    object-fit: contain;
+    max-height: 350px;
   }
 }
 
