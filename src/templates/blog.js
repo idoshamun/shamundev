@@ -10,6 +10,9 @@ export default class Blog extends React.Component {
         let display_posts = _.orderBy(getPages(this.props.pageContext.pages, '/posts'), 'frontmatter.date', 'desc');
         return (
             <Layout {...this.props}>
+              <header className="post-header">
+                <h1 className="post-title underline">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
+              </header>
               <div className="post-feed">
                 {_.map(display_posts, (post, post_idx) => (
                 <article key={post_idx} className="post">
