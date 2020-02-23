@@ -60,7 +60,8 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
-                const relPath = '/' + edge.node.fileAbsolutePath.split('/').slice(-2).join('/');
+                let relPath = '/' + edge.node.fileAbsolutePath.split('/').slice(-2).join('/');
+                relPath = relPath.substring(0, relPath.lastIndexOf('.'));
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
