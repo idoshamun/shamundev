@@ -10,15 +10,23 @@ export default class Post extends React.Component {
         return (
             <Layout {...this.props}>
               <article className="post post-full">
+                {_.get(this.props, 'pageContext.frontmatter.tags') &&
+                <div className="tags" style={{display: 'none'}}>
+                  {_.get(this.props, 'pageContext.frontmatter.tags').map(tag =>
+                    <div className="tag" key={tag}>
+                      #{tag}
+                    </div> )}
+                </div>
+                }
                 <header className="post-header">
                   <h1 className="post-title underline">{_.get(this.props, 'pageContext.frontmatter.title')}</h1>
                 </header>
-                {_.get(this.props, 'pageContext.frontmatter.subtitle') && 
+                {_.get(this.props, 'pageContext.frontmatter.subtitle') &&
                 <div className="post-subtitle">
                   {htmlToReact(_.get(this.props, 'pageContext.frontmatter.subtitle'))}
                 </div>
                 }
-                {_.get(this.props, 'pageContext.frontmatter.content_img_path') && 
+                {_.get(this.props, 'pageContext.frontmatter.content_img_path') &&
                 <div className="post-thumbnail">
                   <img src={safePrefix(_.get(this.props, 'pageContext.frontmatter.content_img_path'))} alt={_.get(this.props, 'pageContext.frontmatter.title')} />
                 </div>
