@@ -6,3 +6,7 @@ command = "./stackbit-build.sh"
   from = "/posts/2019-06-17_using-onesignal-in-a-vue-cli-3-application"
   to = "/posts/using-onesignal-in-a-vue-cli-3-application"
   status = 301
+  
+[[redirects]]
+  from = "/*"
+  to = "https://blog.shamun.dev/:splat"
