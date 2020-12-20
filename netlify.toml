@@ -11,3 +11,4 @@ command = "./stackbit-build.sh"
   from = "/*"
   to = "https://blog.shamun.dev/:splat"
   status = 301
+  force = true
