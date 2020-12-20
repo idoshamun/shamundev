@@ -10,3 +10,4 @@ command = "./stackbit-build.sh"
 [[redirects]]
   from = "/*"
   to = "https://blog.shamun.dev/:splat"
+  status = 301
