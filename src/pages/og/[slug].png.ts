@@ -7,7 +7,7 @@ import { Resvg } from "@resvg/resvg-js";
 import {readAll, readOne} from "../../lib/markdoc/read";
 import { blog } from "../../lib/markdoc/frontmatter.schema";
 import { siteConfig } from "../../site.config";
-import {getFormattedDate} from "../../date";
+import { getFormattedDate } from "../../date";
 
 const AssetDir = resolve("src", "assets");
 const RobotoMonoPath = join(AssetDir, "roboto-mono-regular.ttf");
@@ -46,8 +46,8 @@ const markup = (title: string, pubDate: string) => html`
         </div>
         <div tw="flex items-center justify-between w-full p-10 border-t border-[#C029F0] text-xl">
             <div tw="flex items-center">
-                <img src="${siteConfig.siteUrl}/me.jpeg" width="256" height="256" class="w-12 h-12 rounded-full" alt="Me" />
-                <p tw="ml-3 font-semibold">${siteConfig.author}</p>
+                <img src="https://shamun.dev/me.jpeg" width="256" height="256" tw="w-16 h-16 rounded-full" alt="Me" />
+                <p tw="ml-3 text-2xl font-semibold">${siteConfig.author}</p>
             </div>
         </div>
     </div>`;
