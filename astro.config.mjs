@@ -1,5 +1,5 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
-import { defineConfig } from "astro/config";
+import { defineConfig, sharpImageService } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
@@ -36,4 +36,13 @@ export default defineConfig({
       config: { applyBaseStyles: false },
     }),
   ],
+  image: {
+    // https://docs.astro.build/en/guides/assets/#using-sharp
+    service: sharpImageService(),
+  },
+  vite: {
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
+    },
+  },
 });

@@ -1,12 +1,7 @@
 ---
 import { getBlogPostMeta } from "../lib/seo";
-import {
-  SITE_TITLE,
-  SITE_DESCRIPTION,
-  SITE_URL,
-  TWITTER_HANDLE,
-  MY_NAME,
-} from "../config";
+
+import { siteConfig } from "../site.config";
 
 export interface Props {
   title?: string;
@@ -31,17 +26,17 @@ const {
 } = Astro.props;
 
 const { meta, og, twitter } = getBlogPostMeta({
-  title: title || SITE_TITLE,
-  description: description || SITE_DESCRIPTION,
-  pageUrl: pagePath ? new URL(pagePath, SITE_URL).toString() : undefined,
-  authorName: MY_NAME,
+  title: title || siteConfig.title,
+  description: description || siteConfig.description,
+  pageUrl: pagePath ? new URL(pagePath, siteConfig.siteUrl).toString() : undefined,
+  authorName: siteConfig.author,
   publishDate,
   ogImageAbsoluteUrl,
   ogImageAltText,
   ogImageWidth,
   ogImageHeight,
-  siteOwnerTwitterHandle: TWITTER_HANDLE,
-  contentAuthorTwitterHandle: TWITTER_HANDLE,
+  siteOwnerTwitterHandle: `@{siteConfig.social}`,
+  contentAuthorTwitterHandle: `@{siteConfig.social}`,
 });
 ---
 

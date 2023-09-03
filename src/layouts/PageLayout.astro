@@ -1,6 +1,6 @@
 ---
-/* 
-  This layout is used in 
+/*
+  This layout is used in
   - pages/index.astro
   - pages/blog.astro
   - pages/projects.astro
@@ -15,15 +15,16 @@ import ThemeScript from "./ThemeScript.astro";
 import Favicon from "./Favicon.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+import { siteConfig } from "../site.config";
 ---
 
 <!DOCTYPE html>
-<html class="theme-sleek" lang="en">
+<html class="theme-sleek" lang={siteConfig.lang}>
   <head>
     <!-- Global Metadata -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="Blogster" />
     <Favicon />
     <slot name="meta" />
     <GoogleFont />

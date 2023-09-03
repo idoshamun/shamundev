@@ -2,11 +2,11 @@
 import PageMeta from "../components/PageMeta.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 import Intro from "../components/Intro.astro";
-import { SITE_TITLE } from "../config";
+import { siteConfig } from "../site.config";
 ---
 
 <PageLayout>
-  <PageMeta title={SITE_TITLE} slot="meta" />
+  <PageMeta title={siteConfig.title} slot="meta" />
   <Fragment slot="main">
     <Intro />
   </Fragment>

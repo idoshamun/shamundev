@@ -1,11 +1,6 @@
 ---
 import { getPageMeta } from "../lib/seo";
-import {
-  SITE_TITLE,
-  SITE_DESCRIPTION,
-  SITE_URL,
-  TWITTER_HANDLE,
-} from "../config";
+import { siteConfig } from "../site.config";
 
 export interface Props {
   title?: string;
@@ -15,15 +10,15 @@ export interface Props {
 const { title, description } = Astro.props;
 
 const { meta, og, twitter } = getPageMeta({
-  title: title || SITE_TITLE,
-  description: description || SITE_DESCRIPTION,
-  baseUrl: SITE_URL,
-  ogImageAbsoluteUrl: `${SITE_URL}/images/og.png`,
+  title: title || siteConfig.title,
+  description: description || siteConfig.description,
+  baseUrl: siteConfig.siteUrl,
+  ogImageAbsoluteUrl: `${siteConfig.siteUrl}/images/og.png`,
   // ogImageAltText: "My fancy website",
   ogImageWidth: 1200,
   ogImageHeight: 630,
-  siteOwnerTwitterHandle: TWITTER_HANDLE,
-  contentAuthorTwitterHandle: TWITTER_HANDLE,
+  siteOwnerTwitterHandle: `@{siteConfig.social}`,
+contentAuthorTwitterHandle: `@{siteConfig.social}`,
 });
 ---
 
@@ -63,3 +58,9 @@ const { meta, og, twitter } = getPageMeta({
   )
 }
 <!-- {twitter.url && <meta property="twitter:url" content={twitter.url} />} -->
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- RSS auto-discovery -->
+<link rel="alternate" type="application/rss+xml" title={siteConfig.title} href="/rss.xml" />

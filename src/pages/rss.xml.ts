@@ -1,9 +1,9 @@
 import rss from "@astrojs/rss";
 import { blog } from "../lib/markdoc/frontmatter.schema";
 import { readAll } from "../lib/markdoc/read";
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../config";
+import { siteConfig } from "../site.config";
 
-export const get = async () => {
+export const GET = async () => {
   const posts = await readAll({
     directory: "blog",
     frontmatterSchema: blog,
@@ -17,7 +17,7 @@ export const get = async () => {
         new Date(a.frontmatter.date).valueOf()
     );
 
-  let baseUrl = SITE_URL;
+  let baseUrl = siteConfig.siteUrl;
   // removing trailing slash if found
   // https://example.com/ => https://example.com
   baseUrl = baseUrl.replace(/\/+$/g, "");
@@ -49,8 +49,8 @@ export const get = async () => {
   });
 
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: siteConfig.title,
+    description: siteConfig.description,
     site: baseUrl,
     items: rssItems,
   });
