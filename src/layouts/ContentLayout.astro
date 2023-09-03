@@ -1,5 +1,5 @@
 ---
-/* 
+/*
   This layout is used in pages that render markdoc content
   - pages/blog/[slug].astro
 */
@@ -13,6 +13,7 @@ import ThemeScript from "./ThemeScript.astro";
 import Favicon from "./Favicon.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import GA4 from "../components/GA4.astro";
 import { getFormattedDate } from "src/date";
 
 export interface Props {
@@ -36,6 +37,7 @@ const formattedDate = getFormattedDate(new Date(date));
     <GoogleFont />
     <ThemeScript />
     <FontAwesome />
+    <GA4 />
   </head>
 
   <body

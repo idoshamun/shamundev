@@ -1,0 +1,19 @@
+---
+const isProd = import.meta.env.PROD;
+---
+
+{isProd && <Fragment>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC8BFWMV2R"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent','default',{
+        'ad_storage':'denied',
+        'analytics_storage':'denied',
+        'personalization_storage':'denied'
+      });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('config', 'G-ZC8BFWMV2R');
+  </script>
+</Fragment>}
