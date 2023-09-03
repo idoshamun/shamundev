@@ -3,7 +3,8 @@ import { readAll } from "../lib/markdoc/read";
 import { blog } from "../lib/markdoc/frontmatter.schema";
 import PageLayout from "../layouts/PageLayout.astro";
 import PageMeta from "../components/PageMeta.astro";
-import { SITE_TITLE } from "../config";
+import { siteConfig } from "../site.config";
+import { getFormattedDate } from "src/date";
 
 const posts = await readAll({
   directory: "blog",
@@ -20,18 +21,12 @@ const sortedPosts = posts
 ---
 
 <PageLayout>
-  <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
+  <PageMeta title={`Blog | ${siteConfig.title}`} slot="meta" />
   <section slot="main">
     <ul>
       {
         sortedPosts.map((post) => {
-          const formattedDate = new Date(
-            post.frontmatter.date
-          ).toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          });
+          const formattedDate = getFormattedDate(new Date(post.frontmatter.date));
           return (
             <li class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start">
               <div class="title">
@@ -48,7 +43,7 @@ const sortedPosts = posts
                   </a>
                 ) : (
                   <a
-                    href={`/blog/${post.slug}`}
+                    href={`/posts/${post.slug}`}
                     class="unset hover:text-text-link"
                   >
                     {post.frontmatter.title}

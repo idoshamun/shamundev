@@ -42,7 +42,7 @@ const ogImageAbsoluteUrl = new URL(ogImageRelUrl, siteConfig.siteUrl).toString()
     title={frontmatter.title}
     description={frontmatter.external ? undefined : frontmatter.description}
     publishDate={frontmatter.date.toISOString()}
-    pagePath={`/blog/${slug}`}
+    pagePath={`/posts/${slug}`}
     ogImageAbsoluteUrl={ogImageAbsoluteUrl}
     slot="meta"
   />

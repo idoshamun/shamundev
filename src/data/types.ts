@@ -10,6 +10,7 @@ export type SiteConfig = {
 	};
 	social: string;
 	siteUrl: string;
+	image: string;
 };
 
 export type PaginationLink = {

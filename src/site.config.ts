@@ -19,5 +19,6 @@ export const siteConfig: SiteConfig = {
 	},
 	social: "idoshamun",
 	siteUrl: BASE_URL.origin,
+	image: "https://shamun.dev/me.jpeg",
 };
 
