@@ -11,17 +11,5 @@ export type SiteConfig = {
 	social: string;
 	siteUrl: string;
 	image: string;
-};
-
-export type PaginationLink = {
-	url: string;
-	text?: string;
-	srLabel?: string;
-};
-
-export type SiteMeta = {
-	title: string;
-	description?: string;
-	ogImage?: string | undefined;
-	articleDate?: string | undefined;
+	squad: string;
 };
