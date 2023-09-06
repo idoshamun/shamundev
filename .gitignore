@@ -1,3 +1,6 @@
+.idea/
+.astro/
+
 # build output
 dist/
 
