@@ -148,7 +148,7 @@ export function getBlogPostMeta({
   const meta: PageMeta = {
     title: pageTitle,
     description: description,
-    canonicalUrl,
+    canonicalUrl: canonicalUrl || pageUrl,
   };
 
   const og: BlogPostOgMeta = {
