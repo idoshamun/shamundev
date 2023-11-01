@@ -41,10 +41,6 @@ Server Actions == RPC, inheriting its drawbacks. The naive developer may overloo
 
 Custom endpoints empower developers with full control, useful for multi-platform applications. How does one invoke a Server Action from an Android app? And more importantly how do you make sure the contract doesn't change over time?
 
-## Vendor Lock
-
-Deploying Server Actions might initially be exclusive to Vercel, potentially creating a dependency on their ecosystem. Other providers may play catch-up, but with each nextjs update, the cycle repeats.
-
 ## Junior Developers
 
 While seasoned developers might navigate these complexities, newcomers could be unaware. 
