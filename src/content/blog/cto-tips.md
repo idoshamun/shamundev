@@ -33,7 +33,7 @@ If you want to stand out and be great, working 9 to 5 is bullshit. It doesn't me
 
 Early in my career, I held a full-time position during the day while working on other projects at night and on weekends, barely sleeping 5 hours a day. Even today, I work way more than 9 to 5 but dedicate my focus to only one project, which is daily.dev at the moment. I find it easier than spreading my attention, and it's the only thing I care about currently.
 
-## Staying Up to Date
+## Stay Up to Date
 
 At some point in my career, I realized that staying up to date is crucial to being top of the class. You must know the latest trends, tools, perspectives, and approaches. As the old saying goes, if all you have is a hammer, everything looks like a nail. The more knowledge you have, the more problems you can solve. This eventually led me to build daily.dev, but before that, I used RSS readers and social media to get the latest news. I dedicated days to perfecting this setup and making it viable.
 
