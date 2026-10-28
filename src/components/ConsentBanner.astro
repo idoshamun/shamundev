@@ -1,0 +1,65 @@
+---
+const isProd = import.meta.env.PROD;
+---
+
+{isProd && (
+<consent-banner hidden class="fixed inset-x-0 bottom-0 z-50 px-4 pb-4">
+  <div class="mx-auto max-w-3xl flex flex-col sm:flex-row sm:items-center gap-3 p-4 text-sm rounded-2xl shadow-lg bg-bg-body border border-neutral-200 dark:border-neutral-700">
+    <p class="m-0 flex-1">I use Google Analytics and the daily.dev pixel to measure visits to this blog. Okay with that?</p>
+    <div class="flex gap-2 self-end sm:self-auto">
+      <button type="button" data-consent="denied" class="px-4 py-1.5 rounded-full bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600">Decline</button>
+      <button type="button" data-consent="granted" class="px-4 py-1.5 rounded-full text-white bg-[#AC1DE4] hover:bg-[#9E15D9] dark:bg-[#CE3DF3] dark:hover:bg-[#D74CF6]">Accept</button>
+    </div>
+  </div>
+</consent-banner>
+)}
+
+<script>
+  type Consent = "granted" | "denied";
+
+  const STORAGE_KEY = "consent";
+
+  function readConsent(): Consent | null {
+    try {
+      const value = localStorage.getItem(STORAGE_KEY);
+      return value === "granted" || value === "denied" ? value : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveConsent(consent: Consent) {
+    try {
+      localStorage.setItem(STORAGE_KEY, consent);
+    } catch {}
+  }
+
+  function applyConsent(consent: Consent) {
+    window.dailyPixel?.("consent", consent, { source: "explicit" });
+    window.gtag?.("consent", "update", { analytics_storage: consent });
+  }
+
+  class ConsentBanner extends HTMLElement {
+    connectedCallback() {
+      const stored = readConsent();
+      if (stored) {
+        applyConsent(stored);
+        return;
+      }
+
+      this.hidden = false;
+      this.querySelectorAll<HTMLButtonElement>("[data-consent]").forEach(
+        (button) => {
+          button.addEventListener("click", () => {
+            const consent = button.dataset.consent as Consent;
+            saveConsent(consent);
+            applyConsent(consent);
+            this.hidden = true;
+          });
+        }
+      );
+    }
+  }
+
+  customElements.define("consent-banner", ConsentBanner);
+</script>

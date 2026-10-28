@@ -17,6 +17,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import GA4 from "../components/GA4.astro";
 import DailyPixel from "../components/DailyPixel.astro";
+import ConsentBanner from "../components/ConsentBanner.astro";
 
 import { siteConfig } from "../site.config";
 ---
@@ -44,6 +45,7 @@ import { siteConfig } from "../site.config";
       <slot name="main" />
     </main>
     <Footer />
+    <ConsentBanner />
     <style>
       body {
         display: grid;
